@@ -123,8 +123,13 @@
         failure(@"初始化失败");
         return;
     }
-//    [[FATExtClient sharedClient] fat_prepareExtensionApis];
-    [[FATClient sharedClient].logManager initLogWithLogDir:nil logLevel:FATLogLevelVerbose consoleLog:YES];
+    NSArray *patchs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [patchs objectAtIndex:0];
+    NSString *logDir = [documentsDirectory stringByAppendingPathComponent:@"Casamiel_FinClip_LogFiles"];
+    NSLog(@"记录日志的路径是：%@", logDir);
+    //    [[FATExtClient sharedClient] fat_prepareExtensionApis];
+    //开启不同level的日志可以看到不同的log
+    [[FATClient sharedClient].logManager initLogWithLogDir:logDir logLevel:FATLogLevelVerbose consoleLog:YES];
     
     
     [[FATClient sharedClient] setEnableLog:YES];
