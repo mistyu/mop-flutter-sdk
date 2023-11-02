@@ -129,7 +129,7 @@
     NSLog(@"记录日志的路径是：%@", logDir);
     //    [[FATExtClient sharedClient] fat_prepareExtensionApis];
     //开启不同level的日志可以看到不同的log
-    [[FATClient sharedClient].logManager initLogWithLogDir:logDir logLevel:FATLogLevelVerbose consoleLog:YES];
+    [[FATClient sharedClient].logManager initLogWithLogDir:logDir logLevel:FATLogLevelInfo consoleLog:YES];
     
     
     [[FATClient sharedClient] setEnableLog:YES];
